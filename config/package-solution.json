@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "resolveit-client-side-solution",
+    "id": "f568a027-1c5d-49ec-9de5-b09240b8591d",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.18.2"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "resolveit description"
+      },
+      "longDescription": {
+        "default": "resolveit description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "resolveit Feature",
+        "description": "The feature that activates elements of the resolveit solution.",
+        "id": "511ffbf5-14a2-4cfa-92a6-29516cacbe66",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/resolveit.sppkg"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "resolveit-main-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/resolveitMain/ResolveitMainWebPart.js",
+          "manifest": "./src/webparts/resolveitMain/ResolveitMainWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "ResolveitMainWebPartStrings": "lib/webparts/resolveitMain/loc/{locale}.js"
+  }
+}
