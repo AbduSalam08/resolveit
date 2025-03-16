@@ -1,0 +1,38 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 5px;
+  font-family: "interRegular", sans-serif !important;
+}
+
+.multiTextInput::placeholder {
+  color: #adadad !important;
+}
+.multiTextInput {
+  width: 100%;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid var(--border-color-light) !important;
+  font-family: "interRegular", sans-serif !important;
+  border-radius: 8px !important;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.multiTextInput:focus {
+  border: 1px solid var(--secondary) !important;
+  box-shadow: 0 0 5px rgba(0, 90, 158, 0.5);
+}
+
+.error {
+  border: 1px solid var(--critical) !important;
+}
+
+.errorMessage {
+  color: var(--critical);
+  font-size: 13px;
+  font-family: "interMedium", sans-serif !important;
+}
