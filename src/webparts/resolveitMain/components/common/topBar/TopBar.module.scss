@@ -1,0 +1,51 @@
+.topBar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  padding: 0 20px;
+  border-radius: 10px;
+  // background-color: #fff;
+  // box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.05);
+  // margin: 20px;
+  .topBarLeft {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 18px;
+    font-family: "interBold", sans-serif;
+    color: var(--bg-dark-main);
+    // font-style: italic;
+  }
+  .topBarRight {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px;
+    .profileTabs {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+  }
+}
+.profileInfo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  margin: 10px;
+  .namePill {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    // gap: 8px;
+    flex-direction: column;
+    span {
+      font-size: 15px;
+      font-family: "interMedium", sans-serif;
+      color: var(--bg-dark-main);
+    }
+  }
+}

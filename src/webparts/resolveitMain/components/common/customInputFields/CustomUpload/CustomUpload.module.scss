@@ -1,0 +1,32 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 5px;
+  font-family: "interRegular", sans-serif !important;
+}
+
+.customUpload {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  background: #f8f8f8;
+  //   border: 1px solid #ddd;
+  transition: background 0.3s ease-in-out;
+}
+
+.error {
+  border: 1px solid var(--critical) !important;
+}
+
+.errorMessage {
+  color: var(--critical);
+  font-size: 13px;
+  font-family: "interMedium", sans-serif !important;
+}
