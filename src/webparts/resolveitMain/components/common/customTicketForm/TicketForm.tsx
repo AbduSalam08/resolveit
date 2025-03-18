@@ -71,9 +71,11 @@ const initialFormData: Record<string, FormField> = fields.reduce(
 const TicketForm = ({
   onClosePopup,
   ticketNumber,
+  fetchTickets,
 }: {
   onClosePopup: () => void;
   ticketNumber: any;
+  fetchTickets: any;
 }): JSX.Element => {
   const totalSlides = fields.length;
 
@@ -503,6 +505,7 @@ const TicketForm = ({
             onClick={() => {
               onClosePopup();
               handleReset();
+              fetchTickets();
             }}
             className={styles.closeButton}
           >
