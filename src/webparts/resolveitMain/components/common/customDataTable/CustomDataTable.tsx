@@ -11,7 +11,7 @@ import {
   Typography,
   Avatar,
 } from "antd";
-import { Edit, Delete, AttachFile } from "@mui/icons-material";
+import { Edit, Delete, AttachFile, Check } from "@mui/icons-material";
 import CustomTextInput from "../customInputFields/CustomTextInput/CustomTextInput";
 import CustomSelect from "../customInputFields/CustomSelect/CustomSelect";
 import { Spin } from "antd";
@@ -568,7 +568,11 @@ const CustomDataTable: React.FC<EditableTicketTableProps> = ({
                 }}
                 className="smallTagGlobal"
               >
-                mark as resolved
+                <Check
+                  sx={{
+                    fontSize: "18px",
+                  }}
+                />
               </Tag>
               // </Popconfirm>
             )}

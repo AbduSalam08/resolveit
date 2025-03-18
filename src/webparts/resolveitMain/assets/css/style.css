@@ -587,3 +587,79 @@ body {
 .ant-checkbox-checked .ant-checkbox-inner {
   border-radius: 5px;
 }
+.iwrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 60px;
+  padding: 60px;
+  padding-top: 20px;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0px 80px rgba(156, 182, 237, 0.1);
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+  span {
+    font-size: 50px;
+    font-family: "interBold", sans-serif;
+    color: #2b2d2f;
+  }
+  .subtext {
+    font-size: 16px;
+    color: #13563d;
+    font-family: "interMedium", sans-serif;
+  }
+}
+
+iframe {
+  border-radius: 30px;
+  border: 5px solid rgb(177, 207, 241);
+  font-family: "interRegular", sans-serif !important;
+  animation: rgbGlow 30s infinite alternate;
+
+  .header-111 {
+    justify-content: center !important;
+    background-color: #000 !important;
+  }
+}
+
+@keyframes rgbGlow {
+  0% {
+    box-shadow: 0 0 450px rgb(150, 82, 82, 0.2);
+  }
+  25% {
+    box-shadow: 0 0 530px rgb(0, 0, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 680px rgb(53, 145, 53, 0.2);
+  }
+  75% {
+    box-shadow: 0 0 1100px rgb(195, 195, 75, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 410px rgb(255, 0, 0, 0.2);
+  }
+}
+
+.glowing-btn {
+  /* padding: 15px 30px; */
+  /* font-size: 18px;
+  font-weight: bold; */
+  color: white !important;
+  background-color: black !important;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 30s ease-in-out;
+  animation: rgbGlow 30s infinite alternate;
+}
+
+.glowing-btn:hover {
+  color: #fff !important;
+}

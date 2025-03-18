@@ -105,11 +105,19 @@ const MyTickets = (): JSX.Element => {
   return (
     <div>
       <TopBar />
-      <iframe
-        src="https://copilotstudio.microsoft.com/environments/Default-3e8e53be-a48f-4147-adf8-7e90a6e46b57/bots/cr5a7_resolveIt/webchat?__version__=2"
-        // frameborder="0"
-        style={{ width: "100%", height: "300px" }}
-      />
+      <div className="iwrap">
+        <div>
+          <span>✨ Ask ResolveIT Copilot!</span>
+          <span className="subtext">
+            An <strong>AI Powered Ticketing system</strong> in SPFX
+          </span>
+        </div>
+        <iframe
+          src="https://copilotstudio.microsoft.com/environments/Default-3e8e53be-a48f-4147-adf8-7e90a6e46b57/bots/cr5a7_resolveIt/webchat?__version__=2"
+          // frameborder="0"
+          style={{ width: "70%", height: "330px" }}
+        />
+      </div>
       <div className={styles.myTicketsWrapper}>
         <div className={styles.dtWrapperMain}>
           <div className={styles.Header}>
@@ -132,6 +140,14 @@ const MyTickets = (): JSX.Element => {
                 className="manualCbx"
                 onChange={(e: any) => {
                   console.log("e: ", e.target.check);
+                  if (!e.target.checked) {
+                    fetchAllTickets();
+                  } else {
+                    const filterdata = tickets?.filter(
+                      (item: any) => item?.priority === "High"
+                    );
+                    setTickets(filterdata);
+                  }
                 }}
                 style={{
                   // width: "220px",
@@ -140,7 +156,29 @@ const MyTickets = (): JSX.Element => {
                   color: "#555",
                 }}
               >
-                Assigned to me
+                High Prority
+              </Checkbox>
+              <Checkbox
+                className="manualCbx"
+                onChange={(e: any) => {
+                  console.log("e: ", e.target.check);
+                  if (!e.target.checked) {
+                    fetchAllTickets();
+                  } else {
+                    const filterdata = tickets?.filter(
+                      (item: any) => item?.priority === "Critical"
+                    );
+                    setTickets(filterdata);
+                  }
+                }}
+                style={{
+                  // width: "220px",
+                  fontSize: "13px",
+                  marginTop: "-5px",
+                  color: "#555",
+                }}
+              >
+                Critical
               </Checkbox>
               <div
                 style={{
@@ -150,6 +188,18 @@ const MyTickets = (): JSX.Element => {
                 <CustomTextInput
                   autoFocus={false}
                   placeholder="Search issues"
+                  onChange={(e) => {
+                    if (e.target.value?.length === 0) {
+                      fetchAllTickets();
+                    } else {
+                      const filterdata = tickets?.filter((item: any) =>
+                        item?.issueDescription
+                          ?.toLowerCase()
+                          ?.includes(e?.target.value)
+                      );
+                      setTickets(filterdata);
+                    }
+                  }}
                 />
               </div>
             </div>
@@ -216,20 +266,56 @@ const MyTickets = (): JSX.Element => {
                 In progress tickets ({ticketProperties?.inProgressTickets || 0})
               </span>
               <div className={styles.percentage}>
-                <Progress percent={ticketProperties?.inProgressTickets || 0} />
+                <Progress percent={30} size="small" />
               </div>
             </div>
             <div className={styles.s3}>
               <span className={styles.title}>Open tickets</span>
               <div className={styles.percentage}>
                 {/* 99% */}
-                <Progress percent={20} />
+                <Progress percent={80} size="small" />
               </div>
             </div>
             <div className={styles.s4}>
               <span className={styles.title}>Resolved</span>
               <div className={styles.percentage}>
-                <Progress percent={10} />
+                <Progress percent={100} size="small" />
+              </div>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "30px",
+                marginTop: "10px",
+              }}
+            >
+              <div className={styles.s4}>
+                <span className={styles.title}>Response range</span>
+                <div
+                  className={styles.percentage}
+                  style={{
+                    marginTop: "10px",
+                  }}
+                >
+                  <Progress type="circle" percent={65} />
+                </div>
+              </div>
+              <div className={styles.s4}>
+                <span className={styles.title}>Resolving quality</span>
+                <div
+                  className={styles.percentage}
+                  style={{
+                    marginTop: "10px",
+                  }}
+                >
+                  <Progress
+                    type="circle"
+                    percent={80}
+                    strokeColor={"#52c41a"}
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -252,6 +338,7 @@ const MyTickets = (): JSX.Element => {
         <TicketForm
           ticketNumber={ticketProperties?.latestTicketNumber}
           onClosePopup={handleClose}
+          fetchTickets={fetchAllTickets}
         />
       </Modal>
     </div>
